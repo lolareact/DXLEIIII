@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Legal Entity Lookup">
+        <lightning-input label="Enter LEI" value={lei} onchange={handleInput}></lightning-input>
+        <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+
+        <template if:true={entity}>
+            <p><strong>Name:</strong> {entity.EntityName__c}</p>
+            <p><strong>Status:</strong> {entity.RegistrationStatus__c}</p>
+            <p><strong>Country:</strong> {entity.Country__c}</p>
+        </template>
+
+        <template if:true={error}>
+            <p style="color:red;">{error}</p>
+        </template>
+    </lightning-card>
+</template>
